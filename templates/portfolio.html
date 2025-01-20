@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.name }} - Portfolio</title>
+</head>
+<body>
+    <h1>{{ data.name }}</h1>
+    <p><strong>Contact:</strong> {{ data.contact.phone }} | <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></p>
+    <p><strong>LinkedIn:</strong> <a href="{{ data.contact.linkedin }}">{{ data.contact.linkedin }}</a></p>
+    <p><strong>GitHub:</strong> <a href="{{ data.contact.github }}">{{ data.contact.github }}</a></p>
+    
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in data.skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Soft Skills</h2>
+    <ul>
+        {% for soft_skill in data.soft_skills %}
+        <li>{{ soft_skill }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Experience</h2>
+    <ul>
+        {% for exp in data.experience %}
+        <li>{{ exp.role }} at {{ exp.company }} ({{ exp.date }}, {{ exp.type }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Education</h2>
+    <p>{{ data.education }}</p>
+
+    <h2>Projects</h2>
+    <ul>
+        {% for project in data.projects %}
+        <li><strong>{{ project.title }}</strong>: {{ project.description }} (Tech: {{ project.tech }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Certifications</h2>
+    <ul>
+        {% for cert in data.certifications %}
+        <li>{{ cert }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
